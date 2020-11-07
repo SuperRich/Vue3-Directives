@@ -3,8 +3,12 @@
   <ul>
    <li v-for="(value, key) in dcHeros" :key="key">{{value.name}}</li>
   </ul>
-  <input v-model.trim="newHero" />
-  <button>Add Hero</button>
+  <form @submit.prevent="dcHeros.push({name: newHero})">
+  <label>
+    <input v-model.trim="newHero" />
+  </label>
+  <button type="submit">Add Hero</button>
+  </form>
 </template>
 
 <script>
