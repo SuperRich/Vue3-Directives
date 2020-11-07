@@ -1,26 +1,27 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <h1> Dc Heros </h1>
+  <ul>
+   <li v-for="(value, key) in dcHeros" :key="key">{{value.name}}</li>
+  </ul>
+  <input v-model.trim="newHero" />
+  <button>Add Hero</button>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  data() {
+    return {
+      isDisabled: false,
+      newHero: "Aquamannnn",
+      dcHeros: [
+       { name: "SuperGirl" }, 
+       { name: "Flash" },
+       { name: "Batman" },
+       { name: "Arrow" }, 
+       { name: "Superman" }
+        ]
+    }
   }
+  
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
