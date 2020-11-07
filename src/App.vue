@@ -3,9 +3,9 @@
   <ul>
    <li v-for="(value, key) in dcHeros" :key="key">{{value.name}}</li>
   </ul>
-  <form @submit.prevent="dcHeros.push({name: newHero})">
+  <form @submit.prevent="dcHeros.push({name: newHero}); newHero = '';">
   <label>
-    <input v-model.trim="newHero" />
+    <input v-model.trim="newHero" placeholder="Name of hero" />
   </label>
   <button type="submit">Add Hero</button>
   </form>
@@ -16,7 +16,7 @@ export default {
   data() {
     return {
       isDisabled: false,
-      newHero: "Aquamannnn",
+      newHero: "",
       dcHeros: [
        { name: "SuperGirl" }, 
        { name: "Flash" },
